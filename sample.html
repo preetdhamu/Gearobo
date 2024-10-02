@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: relative;
+            padding: 50px;
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+        }
+        .text-box {
+            margin-bottom: 30px;
+        }
+        .dynamic-text {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #61dafb;
+        }
+        .cube-container {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            perspective: 600px;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotate 8s infinite linear;
+        }
+        .cube div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
+        }
+        .cube .front { transform: translateZ(100px); }
+        .cube .back { transform: rotateY(180deg) translateZ(100px); }
+        .cube .right { transform: rotateY(90deg) translateZ(100px); }
+        .cube .left { transform: rotateY(-90deg) translateZ(100px); }
+        .cube .top { transform: rotateX(90deg) translateZ(100px); }
+        .cube .bottom { transform: rotateX(-90deg) translateZ(100px); }
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        .ai-image {
+            position: absolute;
+            top: 70px; /* Adjust this value to position the image */
+            right: 0;
+            width: 100px; /* Set your desired width */
+            opacity: 0.8; /* Darkish effect */
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        }
+    </style>
+</head>
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                    <li><a href="">COURSE</a></li>
+                    <li><a href="">BLOG</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>Innovation - Group of innovative team gives glance of future robos</h1>
+            <div class="dynamic-text">
+                <span id="dynamic-text-content"></span><span class="cursor"></span>
+            </div>
+            <a href="" class="hero-btn">Visit Us To know More</a>
+        </div>
+
+        <div class="cube-container">
+            <div class="cube">
+                <div class="front"></div>
+                <div class="back"></div>
+                <div class="right"></div>
+                <div class="left"></div>
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+            <img src="https://via.placeholder.com/100" alt="AI Image" class="ai-image"> <!-- Replace with your AI image -->
+        </div>
+    </section>
+
+    <!-- Your other sections remain unchanged -->
+
+    <script>
+        var navLinks = document.getElementById('navLinks');
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+        const texts = [
+            "R & D, Developing Softwares and Applications",
+            "Gearobo gathers the data using specialist tools to generate informations with verification that helps others made decisions.",
+            "Today we use our digital identity at work, at home and across every app, service and device we use."
+        ];
+        
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 250;
+        const erasingSpeed = 100;
+        const delayBetweenTexts = 1500; // Delay before starting the next text
+
+        function typeText() {
+            const dynamicTextElement = document.getElementById('dynamic-text-content');
+            const currentText = texts[currentTextIndex];
+
+            if (isDeleting) {
+                // Erase text
+                dynamicTextElement.textContent = currentText.slice(0, currentCharIndex - 1);
+                currentCharIndex--;
+                if (currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentTextIndex = (currentTextIndex + 1) % texts.length; // Move to the next text
+                    setTimeout(typeText, delayBetweenTexts);
+                } else {
+                    setTimeout(typeText, erasingSpeed);
+                }
+            } else {
+                // Type text
+                dynamicTextElement.textContent = currentText.slice(0, currentCharIndex + 1);
+                currentCharIndex++;
+                if (currentCharIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeText, delayBetweenTexts);
+                } else {
+                    setTimeout(typeText, typingSpeed);
+                }
+            }
+        }
+
+        // Start typing effect
+        typeText();
+    </script>
+</body>
+</html>

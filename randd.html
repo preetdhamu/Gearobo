@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Design </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"> <img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/randd.html">R & D</a>
+                    </li>
+                    <li>
+                        <a href="/dataanakyst.html">Data Analyst</a>
+                    </li>
+                    <li>
+                        <a href="/userverification.html">User's Verification</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                  
+                    <li>
+                        <a href="/services.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Research And Development</h1>
+    </section>
+
+    <!-- ----------about us ccontent ------  -->
+
+    <section class="about-us">
+        <div class="row">
+            
+            <div class="about-col">
+                <div class="macbook">
+                    <div class="screen">
+                      <div class="viewport" style="background-image:url('images/rnd.jpeg');">
+                      </div>
+                    </div>
+                    <div class="base"></div>
+                    <div class="notch"></div>
+                  </div>
+            </div>
+            <div class="about-col">
+                <h1>
+                    
+                    Research And Development
+                </h1>
+                <p>We help externalize unique, timely, and cost-effective IT deviations that improve your business functioning, differentiate you from your competition and better serve your customers. Our IT software research and development team helps businesses enhance exisiting Applications, launch new services, UI and UX technologies and avoid antiquity. R&D, short for Research and Development, refers to a series of investigative activities that come beforehand the decision to improve existing products and procedures or to develop new solutions. Companies across all sectors and industries invest in R&D to help them improve their existing products and locate gaps in the market that can be filled with new solutions and thus experience corporate growth. We at Gearobo Secure Infotech Limited know the importance of R&D. As a company with significant experience in developing enlightened software applications, we offer our extensive knowledge to our public with the goal of helping them to know more about Application innovations that they can use friendly.</p>
+                <a href="" class="hero-btn red-btn">EXPLORE NOW </a>
+            </div>
+        </div>
+    </section>
+     <!-- ----------Footer------ -->
+    <section class="footer animate-section">
+        <h4>About Us</h4>
+        <p>Presently user's lifestyle is completely immersed & integrated with AI, data centres and robotism through internet, mobile, laptop or other gadgets.Requirement of user is increasing everyday and hunger
+            to utilise these all system for their betterment and progress is increasing but due to enlightenment and complicated interfaces of available resources its not providing useful productive and efficient
+            results to society. Therefore after accessible resources the productivity and utilisation of society's growth calibre are restricted.</p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i></p>
+    </section>
+
+    <!-- ---------JAVASCRIPT for Toggle Menu -------------- -->
+    <script>
+        var navLinks = document.getElementById('navLinks');
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".animate-section");
+
+    // Create an Intersection Observer instance
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+
+                // Add an event listener for when the animation ends
+                entry.target.addEventListener("animationend", () => {
+                    entry.target.classList.remove("animate");
+                }, { once: true }); // Use `{ once: true }` to remove the listener after it's called
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe each section
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+});
+
+
+    </script>
+</body>
+</html>

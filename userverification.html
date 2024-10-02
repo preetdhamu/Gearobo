@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Design </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"> <img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/randd.html">R & D</a>
+                    </li>
+                    <li>
+                        <a href="/dataanakyst.html">Data Analyst</a>
+                    </li>
+                    <li>
+                        <a href="/userverification.html">User's Verification</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                  
+                    <li>
+                        <a href="/services.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>User Verification</h1>
+    </section>
+
+    <!-- ----------about us ccontent ------  -->
+
+    <section class="about-us">
+        <div class="row">
+            
+            
+            <div class="about-col">
+                <h1>
+                    
+                    User Verification
+                </h1>
+                <p>Now a days it is very important to get verifies information. User verification involves authenticating potential users before allowing them to create an account on your app. The proper validation and authentication is a right way of confirming users who are they ? It's similar to say of “something you know and something you have,” but instead of something physical like a key or password, it uses information that only the user knows and is kept on their phone. You can use device identification to verify the location of your users, what type of device they're using, and what kind of network they're on.</p>
+                <a href="" class="hero-btn red-btn">EXPLORE NOW </a>
+            </div>
+            <div class="about-col">
+                <div class="macbook">
+                    <div class="screen">
+                      <div class="viewport" style="background-image:url('images/rnd.jpeg');">
+                      </div>
+                    </div>
+                    <div class="base"></div>
+                    <div class="notch"></div>
+                  </div>
+            </div>
+        </div>
+    </section>
+     <!-- ----------Footer------ -->
+    <section class="footer animate-section">
+        <h4>About Us</h4>
+        <p>Presently user's lifestyle is completely immersed & integrated with AI, data centres and robotism through internet, mobile, laptop or other gadgets.Requirement of user is increasing everyday and hunger
+            to utilise these all system for their betterment and progress is increasing but due to enlightenment and complicated interfaces of available resources its not providing useful productive and efficient
+            results to society. Therefore after accessible resources the productivity and utilisation of society's growth calibre are restricted.</p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i></p>
+    </section>
+
+    <!-- ---------JAVASCRIPT for Toggle Menu -------------- -->
+    <script>
+        var navLinks = document.getElementById('navLinks');
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".animate-section");
+
+    // Create an Intersection Observer instance
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+
+                // Add an event listener for when the animation ends
+                entry.target.addEventListener("animationend", () => {
+                    entry.target.classList.remove("animate");
+                }, { once: true }); // Use `{ once: true }` to remove the listener after it's called
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe each section
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+});
+
+
+    </script>
+</body>
+</html>

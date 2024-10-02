@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Design </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"> <img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="/randd.html">R & D</a>
+                    </li>
+                    <li>
+                        <a href="/dataanakyst.html">Data Analyst</a>
+                    </li>
+                    <li>
+                        <a href="/userverification.html">User's Verification</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                  
+                    <li>
+                        <a href="/services.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Contact Us</h1>
+    </section>
+
+
+    <!-- ------------contact us ---- -->
+
+    <!-- <section class="location">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.0399393425705!2d77.05231160000004!3d28.418051700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23f00a31bd11%3A0x7c22e9b0e5fdd75e!2sGearobo%20Secure%20Infotech%20Private%20Limited!5e0!3m2!1sen!2sin!4v1727609821585!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section> -->
+
+    <section class="contact-us">
+        <div class="row">
+            <div class="contact-col">
+                <div>
+                    <i class="fa fa-home"></i>
+                    <span>
+                        <h5>611, Unitech Arcadia South City -2</h5>
+                        <p>Gurugram Sector-49, 122018</p>
+                    </span>
+                </div>
+           
+            
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <span>
+                        <h5>+91 92 12 33 7373</h5>
+                        <p>Monday to Saturday , 9 AM to 6 PM</p>
+                    </span>
+                </div>
+            
+            
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <span>
+                        <h5>support@gearobo.com</h5>
+                        <p>Email us your query</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col">
+                <form onsubmit="sendEmail(); reset(); return false;">
+                    <input type="text" name="name" placeholder="Enter Your Name" required>
+                    <input type="email" id="email" name="" placeholder="Enter Your Email" required>
+                    <textarea name="" id="message" cols="30" rows="8" placeholder="Message" required ></textarea>
+                    <button type="submit" class="hero-btn red-btn">Send Message</button>
+                </form>
+            </div>
+        
+        </div>
+    </section>
+  
+
+    
+
+     <!-- ----------Footer------ -->
+     <section class="footer animate-section">
+        <h4>About Us</h4>
+        <p>Presently user's lifestyle is completely immersed & integrated with AI, data centres and robotism through internet, mobile, laptop or other gadgets.Requirement of user is increasing everyday and hunger
+            to utilise these all system for their betterment and progress is increasing but due to enlightenment and complicated interfaces of available resources its not providing useful productive and efficient
+            results to society. Therefore after accessible resources the productivity and utilisation of society's growth calibre are restricted.</p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i></p>
+    </section>
+     
+    <!-- ---------JAVASCRIPT for Toggle Menu -------------- -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        var navLinks = document.getElementById('navLinks');
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+        function sendEmail(){
+            Email.send({
+    Host : "smtp.gmail.com",
+    Username : "gurpreetdhamu8586@gmail.com",
+    Password : "password",
+    To : 'gurpreetsinghcse851@gmail.com', // receiver
+    From : document.getElementById("email").value,
+    Subject : "New Contact from gearobo",
+    Body : "Name:"+ document.getElementById("name").value +  "<br> Message : "+ document.getElementById('message').value,
+}).then(
+  message => alert(message)
+);
+
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".animate-section");
+
+    // Create an Intersection Observer instance
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+
+                // Add an event listener for when the animation ends
+                entry.target.addEventListener("animationend", () => {
+                    entry.target.classList.remove("animate");
+                }, { once: true }); // Use `{ once: true }` to remove the listener after it's called
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe each section
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+});
+
+    </script>
+</body>
+</html>
